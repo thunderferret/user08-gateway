@@ -1,0 +1,19 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - "gateway"
+  endpoint:
+    gateway:
+      enabled: true
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user08-reservation
+          uri: http://localhost:8081
+          predicates:
+            - Path=/reservation/**
